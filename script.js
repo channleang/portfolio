@@ -12,7 +12,7 @@ class ParticleBackground {
         this.maxParticles = 80;
         this.particleColor = 'rgba(79, 195, 247, 0.4)'; // Based on --accent
         this.lineColor = 'rgba(79, 195, 247, 0.1)';
-        
+
         this.init();
     }
 
@@ -50,11 +50,11 @@ class ParticleBackground {
 
     animate() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        
+
         for (let i = 0; i < this.particles.length; i++) {
             this.particles[i].update(this.canvas.width, this.canvas.height, this.mouse);
             this.particles[i].draw(this.ctx, this.particleColor);
-            
+
             // Connect particles
             for (let j = i; j < this.particles.length; j++) {
                 const dx = this.particles[i].x - this.particles[j].x;
@@ -72,7 +72,7 @@ class ParticleBackground {
                 }
             }
         }
-        
+
         requestAnimationFrame(() => this.animate());
     }
 }
@@ -96,14 +96,14 @@ class Particle {
             let dx = mouse.x - this.x;
             let dy = mouse.y - this.y;
             let distance = Math.sqrt(dx * dx + dy * dy);
-            
+
             if (distance < mouse.radius) {
                 const forceDirectionX = dx / distance;
                 const forceDirectionY = dy / distance;
                 const force = (mouse.radius - distance) / mouse.radius;
                 const directionX = forceDirectionX * force * 5;
                 const directionY = forceDirectionY * force * 5;
-                
+
                 this.x -= directionX;
                 this.y -= directionY;
             }
@@ -124,7 +124,7 @@ class Particle {
 const experiences = [
     {
         company: "AMK Bank",
-        period: "2026 — Present",
+        period: "Feb 2026 — Present",
         role: "Senior Mobile Developer",
         current: true,
         bullets: [
@@ -136,7 +136,7 @@ const experiences = [
     },
     {
         company: "Youding",
-        period: "2024 — 2026",
+        period: "Feb 2024 — Jan 2026",
         role: "Senior iOS Developer",
         bullets: [
             "Engineered the core architecture of a mission-critical POS system, handling thousands of daily retail transactions with 99.9% uptime.",
@@ -146,8 +146,8 @@ const experiences = [
         ]
     },
     {
-        company: "Pipay",
-        period: "2022 — 2024",
+        company: "Pi Pay",
+        period: "Dec 2022 — Jan 2024",
         role: "Senior iOS Developer",
         bullets: [
             "Architected and delivered major feature updates for Cambodia's leading fintech app, focusing on security and high-concurrency payment flows.",
@@ -157,21 +157,23 @@ const experiences = [
     },
     {
         company: "E-School Cambodia",
-        period: "2018 — 2022",
-        role: "Senior iOS Developer",
+        period: "Aug 2017 — Dec 2022",
+        role: "iOS Manager",
         bullets: [
-            "Scaled the mobile engineering team from 2 to 8 developers, overseeing the delivery of 4+ high-traffic educational platforms.",
-            "Launched a proprietary video streaming engine within the iOS app, significantly improving learning accessibility for remote students.",
-            "Managed complex AWS infrastructure and media delivery networks to support over 200,000 active learners."
+            "Directed the iOS engineering department, overseeing the delivery of multiple high-traffic internal and external educational platforms.",
+            "Managed and led cross-functional technical teams, coordinating timelines and mentoring junior developers to senior levels.",
+            "Architected and maintained server environments to ensure high availability for 200,000+ active learners.",
+            "Launched a proprietary video streaming engine within the iOS app, significantly improving learning accessibility."
         ]
     },
     {
         company: "Plan-B Cambodia & Nanita Tech",
-        period: "2014 — 2018",
+        period: "Sep 2014 — Jan 2017",
         role: "Web Developer",
         bullets: [
             "Delivered bespoke enterprise solutions for international Japanese clients using Laravel and Node.js.",
             "Designed and documented RESTful APIs that served as the backbone for multiple cross-platform mobile applications.",
+            "Developed custom web solutions using WordPress and CodeIgniter, focusing on performance optimization and security.",
             "Pivoted into native mobile development, building the foundation for a career-long focus on iOS and Android excellence."
         ]
     }
@@ -200,7 +202,7 @@ function renderExperiences() {
 document.addEventListener('DOMContentLoaded', () => {
     renderExperiences();
     new ParticleBackground();
-    
+
     // Add intersection observer for reveal animations
     const observerOptions = {
         threshold: 0.1
