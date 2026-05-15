@@ -449,6 +449,7 @@ h2 {
 }
 
 .app-card {
+  text-decoration: none;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 4px;
